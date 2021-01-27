@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:minWidth="300sp"
+    android:orientation="vertical">
+
+    <RadioGroup
+        android:id="@+id/radioGroup_color"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RadioButton
+            android:id="@+id/radioButton_red"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15sp"
+            android:background="@color/colorRed"
+            android:button="@null"
+            android:padding="15sp"
+            android:text="红色"
+            android:textColor="@android:color/white"
+            android:textSize="24sp" />
+
+        <RadioButton
+            android:id="@+id/radioButton_gray"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15sp"
+            android:background="@color/colorGray"
+            android:button="@null"
+            android:padding="15sp"
+            android:text="灰色"
+            android:textColor="@android:color/white"
+            android:textSize="24sp" />
+
+        <RadioButton
+            android:id="@+id/radioButton_black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15sp"
+            android:background="@color/colorLightGreen"
+            android:button="@null"
+            android:padding="15sp"
+            android:text="淡绿色(背景)/黑色(文字)"
+            android:textColor="@android:color/white"
+            android:textSize="24sp" />
+
+        <RadioButton
+            android:id="@+id/radioButton_transparent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15sp"
+            android:button="@null"
+            android:padding="15sp"
+            android:text="透明"
+            android:textColor="@android:color/black"
+            android:textSize="24sp" />
+    </RadioGroup>
+</LinearLayout>

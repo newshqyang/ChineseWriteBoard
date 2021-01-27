@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minWidth="300sp"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <RadioGroup
+                android:id="@+id/radioGroup_font"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RadioButton
+                    android:id="@+id/radioButton_tianyingzhangkaishu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15sp"
+                    android:button="@null"
+                    android:padding="15sp"
+                    android:text="田英章楷书"
+                    android:background="@android:color/black"
+                    android:textColor="@android:color/white"
+                    android:textSize="24sp" />
+                <RadioButton
+                    android:id="@+id/radioButton_kaiti"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15sp"
+                    android:background="@color/colorGray"
+                    android:button="@null"
+                    android:padding="15sp"
+                    android:text="楷体"
+                    android:textColor="@android:color/white"
+                    android:textSize="24sp" />
+                <RadioButton
+                    android:id="@+id/radioButton_lishu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15sp"
+                    android:button="@null"
+                    android:padding="15sp"
+                    android:text="隶书"
+                    android:background="@android:color/black"
+                    android:textColor="@android:color/white"
+                    android:textSize="24sp" />
+            </RadioGroup>
+
+            <LinearLayout
+                android:id="@+id/linearLayout_vaeFont"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="15sp">
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/button_addNewFont"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="添加本地字体"
+                android:layout_margin="15sp"
+                android:background="#D87500"
+                android:textSize="20sp"
+                android:typeface="serif"
+                android:textColor="@android:color/white"/>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

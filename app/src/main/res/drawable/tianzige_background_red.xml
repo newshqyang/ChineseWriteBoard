@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:height="14mm"
+        android:width="14mm">
+        <shape>
+            <stroke
+                android:color="@android:color/holo_red_light"
+                android:width="0.2mm"/>
+        </shape>
+    </item>
+
+    <item android:height="7.2mm"
+        android:width="14mm"
+        android:gravity="bottom">
+        <shape>
+            <stroke
+                android:color="@android:color/holo_red_light"
+                android:dashWidth="0.3mm"
+                android:dashGap="0.2mm"/>
+            <stroke
+                android:width="0.1mm"/>
+        </shape>
+    </item>
+
+    <item android:height="14mm"
+        android:width="7.2mm"
+        android:gravity="right">
+        <shape>
+            <stroke
+                android:color="@android:color/holo_red_light"
+                android:dashWidth="0.3mm"
+                android:dashGap="0.2mm"/>
+            <stroke
+                android:width="0.1mm"/>
+        </shape>
+    </item>
+</layer-list>

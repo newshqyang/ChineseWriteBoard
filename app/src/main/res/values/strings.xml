@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">字帖</string>
+    <string name="searching_text">正在扫描本机字体文件</string>
+</resources>

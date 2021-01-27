@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.MainActivity">
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout_topBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/button_exit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:text="退出"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="字帖"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/button_startCreate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:text="开始制作"
+            android:textColor="@color/colorGreen"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/colorLightGray"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout_topBar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingBottom="50sp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10sp"
+                android:background="@android:color/white"
+                android:gravity="center">
+
+                <EditText
+                    android:id="@+id/editText_phrase"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:background="@android:color/transparent"
+                    android:hint="词组/句子（一行最多10个字）"
+                    android:inputType="textPersonName"
+                    android:padding="15sp"
+                    android:textSize="20sp" />
+
+                <Button
+                    android:id="@+id/button_addNewPhrase"
+                    android:layout_width="80sp"
+                    android:layout_height="40sp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="15sp"
+                    android:background="@drawable/button_background_fillet"
+                    android:text="加入" />
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView_phrase"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <RelativeLayout
+                android:layout_marginTop="10sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:minHeight="50sp">
+
+                <Spinner
+                    android:id="@+id/spinner_backgroundColor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_marginTop="10sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:minHeight="50sp">
+
+                <Spinner
+                    android:id="@+id/spinner_fontColor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_marginTop="10sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:minHeight="50sp">
+                <Spinner
+                    android:id="@+id/spinner_familyLib"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"/>
+
+                <TextView
+                    android:id="@+id/textView_searching"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/searching_text"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="18sp"
+                    android:textSize="12sp"
+                    android:textColor="@android:color/holo_blue_light"/>
+
+                <ProgressBar
+                    android:id="@+id/progressBar_searching"
+                    android:indeterminateTint="@android:color/holo_blue_bright"
+                    android:layout_width="15sp"
+                    android:layout_height="15sp"
+                    android:layout_alignParentEnd="true"
+
+                    android:visibility="visible"/>
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10sp"
+                android:background="@android:color/white"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingStart="15sp"
+                android:paddingTop="15sp"
+                android:paddingEnd="15sp"
+                android:paddingBottom="30sp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="样例：" />
+
+                <TextView
+                    android:id="@+id/textView_pinyin"
+                    android:layout_width="21mm"
+                    android:layout_height="9mm"
+                    android:background="@drawable/three_lines_background_sample"
+                    android:gravity="center_horizontal"
+                    android:paddingStart="1mm"
+                    android:paddingTop="0.6mm"
+                    android:paddingEnd="1mm"
+                    android:text="chuǎng"
+                    android:textSize="5mm" />
+
+                <TextView
+                    android:id="@+id/textView_character"
+                    android:layout_width="14mm"
+                    android:layout_height="14mm"
+                    android:background="@drawable/tianzige_background"
+                    android:gravity="center"
+                    android:text="闯"
+                    android:textSize="10mm"
+                    android:typeface="serif" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
