@@ -13,9 +13,11 @@ import android.os.Message;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -50,6 +52,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private TextView mSample3Lines;
     private TextView mSampleCharacter;
     private Button mStartCreate;
+    private Switch mPinyinSwitch;
 
     private List<String> mTextList; // 用来存储录入的词组或者句子的列表
 
@@ -145,6 +148,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void bindComponent() {
         mCancel = findViewById(R.id.button_exit);
         mCancel.setOnClickListener(this);
+        mPinyinSwitch = findViewById(R.id.pinyin_switch);
+        mPinyinSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b) {
+                    mSample3Lines.setVisibility(View.VISIBLE);
+                } else {
+                    mSample3Lines.setVisibility(View.GONE);
+                }
+            }
+        });
         mTextInput = findViewById(R.id.editText_phrase);
         mAdd = findViewById(R.id.button_addNewPhrase);
         mAdd.setOnClickListener(this);
@@ -206,12 +220,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 addNewText();
                 break;
             case R.id.button_startCreate:
+            {
                 if (mTextList.size() == 0) {
                     Toast.makeText(MainActivity.this, "请先录入词组或者句子", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 mData.setText(mChineseDataOperate.listToString(mTextList));
-                new ShowDialog(this).setChineseData(mData).show();
+                new ShowDialog(this)
+                        .setPinyinEnabled(mPinyinSwitch.isChecked())
+                        .setChineseData(mData)
+                        .show();
+            }
+            break;
+            default:
         }
     }
 

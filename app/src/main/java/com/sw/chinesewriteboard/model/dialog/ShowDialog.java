@@ -49,6 +49,7 @@ public class ShowDialog extends MyDialog implements View.OnClickListener {
     private int mPage = 0; // 当前页数
     private int PAGE_LENGTH = 1;    // 总页数
     private Map<String, String> mCharacterMap;  // 汉字-拼音字典
+    private boolean isPinyinEnabled = true; //拼音支持
 
     private LinearLayout mWordPaper;
     private LinearLayout mWordList;
@@ -62,6 +63,11 @@ public class ShowDialog extends MyDialog implements View.OnClickListener {
             PAGE_LENGTH++;
         }
         createWordView();
+        return this;
+    }
+
+    public ShowDialog setPinyinEnabled(boolean pinyinEnabled) {
+        isPinyinEnabled = pinyinEnabled;
         return this;
     }
 
@@ -143,7 +149,15 @@ public class ShowDialog extends MyDialog implements View.OnClickListener {
     @SuppressLint("SetTextI18n")
     private View createCharacterLayout(char c, ChineseData data) {
         View characterLayout = View.inflate(mContext, R.layout.layout_character, null);
+        final EditText character = characterLayout.findViewById(R.id.editText_character);
+        character.setText("" + c);
+        mCharacterOperation.setCharacterAppearance(character, data);
+        mEditTextList.add(character);
         final EditText pinyin = characterLayout.findViewById(R.id.editText_pinyin);
+        if (!isPinyinEnabled) {
+            pinyin.setVisibility(View.GONE);
+            return characterLayout;
+        }
         String py = mCharacterMap.get("" + c);
         if (py != null) {
             pinyin.setText(py);
@@ -156,9 +170,6 @@ public class ShowDialog extends MyDialog implements View.OnClickListener {
             pinyin.setText(" ");
         }
         mCharacterOperation.set3LinesAppearance(pinyin, data);
-        final EditText character = characterLayout.findViewById(R.id.editText_character);
-        character.setText("" + c);
-        mCharacterOperation.setCharacterAppearance(character, data);
         pinyin.setCustomSelectionActionModeCallback(new ActionMode.Callback2() {
             @Override
             public boolean onCreateActionMode(ActionMode mode, Menu menu) {
@@ -189,7 +200,6 @@ public class ShowDialog extends MyDialog implements View.OnClickListener {
             }
         });
         mEditTextList.add(pinyin);
-        mEditTextList.add(character);
         return characterLayout;
     }
 
